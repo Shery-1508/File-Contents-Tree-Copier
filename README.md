@@ -1,31 +1,34 @@
 # File Content-Tree Copier
 
-**File Content-Tree Copier** is a Python application designed to simplify the process of copying file contents and directory structures. It allows users to efficiently select and copy multiple files and their hierarchies, making it easier to share code snippets or project files for debugging and collaboration.
+The **File Content-Tree Copier** is a utility application designed to simplify the process of copying code files and their directory structure. It is especially useful for developers who need to quickly provide code snippets or entire projects to collaborators or debugging tools like GPT.
 
 ## Features
-
-- Copy contents of multiple files at once.
-- Maintain the directory structure for easier access.
-- User-friendly interface for easy navigation.
+- Easy copying of multiple files while preserving directory structure.
+- User-friendly interface for selecting files and folders.
+- Supports batch operations to streamline your workflow.
 
 ## Usage
-
-1. Download the latest executable version from the [releases](link-to-your-releases-page) section.
-2. Run the application and select the files or folders you want to copy.
-3. Choose the destination where you want to paste the contents.
-4. Click on the "Copy" button to complete the process.
+1. Download the executable from the link below.
+2. Run the application and select the files or directories you want to copy.
+3. Specify the destination where the files should be copied.
+4. Click the "Copy" button to complete the process.
 
 ## Download Executable
 
 You can download the executable version of the application from the following link:
-- [Download File Content-Tree Copier](link-to-your-executable)
+- [Download File Content-Tree Copier](https://github.com/Shery-1508/File-Contents-Tree-Copier/releases/download/v1.0.0/File.Content-Tree.Copier.exe)
+-[Release](https://github.com/Shery-1508/File-Contents-Tree-Copier/releases/tag/v1.0.0)
+ 
 
-## Installation
+## Screenshot
+![File Content-Tree Copier Screenshot](https://private-user-images.githubusercontent.com/105873687/383216592-bf74b478-1e5b-48e0-9a4b-dc0f5da3061c.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzA4MjIwNjMsIm5iZiI6MTczMDgyMTc2MywicGF0aCI6Ii8xMDU4NzM2ODcvMzgzMjE2NTkyLWJmNzRiNDc4LTFlNWItNDhlMC05YTRiLWRjMGY1ZGEzMDYxYy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQxMTA1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MTEwNVQxNTQ5MjNaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1jMDE1Y2VmNWExMzg0YjhiNTQ3MjkzNDJlMmEzYTAzNjJmN2M0MWM4NWNkNDA1NmVhYmExYzA0ZWY1ZTQ4ZDk5JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.XuzqAJgsGMkujnX_IGfMcEKtSRVYSrl-xPZx8SvnnHI)
 
-To run the application from source, ensure you have Python installed. Clone the repository and install the required dependencies:
+## Requirements
+- Windows operating system
+- .NET Framework (if applicable)
 
-```bash
-git clone https://github.com/yourusername/File-Contents-Tree-Copier.git
-cd File-Contents-Tree-Copier
-pip install -r requirements.txt
-python main.py
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contributing
+Feel free to contribute by submitting issues or pull requests to help improve the application.
