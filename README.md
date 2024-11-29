@@ -22,7 +22,8 @@ You can download the executable version of the application from the following li
  
 
 ## Screenshot
-![File Content-Tree Copier Screenshot](./File Content-Tree Copier.png)
+![File Content-Tree Copier Screenshot](File%20Content-Tree%20Copier.png)
+
 
 ## Requirements
 - Windows operating system
