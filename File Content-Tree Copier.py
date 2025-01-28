@@ -1039,43 +1039,76 @@ class FileAggregatorApp:
     def show_template_manager(self):
         dialog = tk.Toplevel(self.root)
         dialog.title("Template Manager")
-        dialog.geometry("600x400")
         dialog.transient(self.root)
         dialog.grab_set()
-
-        # Center the dialog
-        dialog.geometry("+%d+%d" % (
-            self.root.winfo_rootx() + self.root.winfo_width()//2 - 300,
-            self.root.winfo_rooty() + self.root.winfo_height()//2 - 200
-        ))
-
-        # Template list
-        list_frame = ttk.LabelFrame(dialog, text="Templates")
-        list_frame.pack(side=tk.LEFT, fill=tk.Y, padx=5, pady=5)
-
-        template_listbox = tk.Listbox(list_frame, width=25, height=15)
-        template_listbox.pack(side=tk.LEFT, fill=tk.Y)
         
-        # Populate template list
-        for template_id, template in self.templates.items():
-            template_listbox.insert(tk.END, template['name'])
-
-        # Template editor
-        editor_frame = ttk.LabelFrame(dialog, text="Edit Template")
+        # Create a frame for the template list
+        list_frame = ttk.Frame(dialog)
+        list_frame.pack(side=tk.LEFT, fill=tk.BOTH, padx=5, pady=5)
+        
+        # Add template listbox
+        template_listbox = tk.Listbox(list_frame, width=30, height=15)
+        template_listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        
+        # Add scrollbar for listbox
+        scrollbar = ttk.Scrollbar(list_frame, orient=tk.VERTICAL, command=template_listbox.yview)
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        template_listbox.config(yscrollcommand=scrollbar.set)
+        
+        # Create a frame for the buttons
+        button_frame = ttk.Frame(list_frame)
+        button_frame.pack(side=tk.BOTTOM, fill=tk.X, pady=(5,0))
+        
+        # Add delete button
+        def delete_template():
+            selection = template_listbox.curselection()
+            if not selection:
+                return
+                
+            template_name = template_listbox.get(selection[0])
+            if template_name in ['No Template', 'Bug Report', 'Feature Request', 'Code Help', '✨ Special Template']:
+                messagebox.showwarning("Warning", "Cannot delete default templates!")
+                return
+                
+            if messagebox.askyesno("Confirm Delete", f"Are you sure you want to delete template '{template_name}'?"):
+                # Find and remove template from self.templates
+                template_id = next((tid for tid, t in self.templates.items() 
+                                 if t['name'] == template_name), None)
+                if template_id:
+                    del self.templates[template_id]
+                    self.save_custom_templates()
+                    # Update listbox and combobox
+                    template_listbox.delete(selection[0])
+                    self.template_combo['values'] = [t['name'] for t in self.templates.values()]
+                    
+                    # Clear editor if deleted template was selected
+                    if template_name == template_listbox.get(selection[0]):
+                        name_entry.delete(0, tk.END)
+                        header_text.delete('1.0', tk.END)
+                        footer_text.delete('1.0', tk.END)
+        
+        delete_btn = ttk.Button(button_frame, text="Delete", command=delete_template)
+        delete_btn.pack(side=tk.RIGHT, padx=5)
+        
+        # Create editor frame
+        editor_frame = ttk.Frame(dialog)
         editor_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
-
-        ttk.Label(editor_frame, text="Name:").pack(anchor=tk.W)
+        
+        # Add template name field
+        ttk.Label(editor_frame, text="Template Name:").pack(anchor=tk.W)
         name_entry = ttk.Entry(editor_frame)
         name_entry.pack(fill=tk.X, padx=5)
-
+        
+        # Add header field
         ttk.Label(editor_frame, text="Header:").pack(anchor=tk.W)
         header_text = tk.Text(editor_frame, height=5)
         header_text.pack(fill=tk.X, padx=5)
-
+        
+        # Add footer field
         ttk.Label(editor_frame, text="Footer:").pack(anchor=tk.W)
         footer_text = tk.Text(editor_frame, height=5)
         footer_text.pack(fill=tk.X, padx=5)
-
+        
         def load_template(event):
             selection = template_listbox.curselection()
             if not selection:
@@ -1090,13 +1123,21 @@ class FileAggregatorApp:
                 header_text.insert('1.0', template['header'])
                 footer_text.delete('1.0', tk.END)
                 footer_text.insert('1.0', template['footer'])
-
+        
         template_listbox.bind('<<ListboxSelect>>', load_template)
-
+        
+        # Populate template list
+        for template in self.templates.values():
+            template_listbox.insert(tk.END, template['name'])
+        
         def save_template():
             name = name_entry.get().strip()
             if not name:
                 messagebox.showerror("Error", "Template name is required")
+                return
+                
+            if name in ['No Template', 'Bug Report', 'Feature Request', 'Code Help', '✨ Special Template']:
+                messagebox.showerror("Error", "Cannot modify default templates")
                 return
 
             template_id = name.lower().replace(' ', '_')
