@@ -36,7 +36,7 @@ The **File Content-Tree Copier** is a powerful utility application designed to s
 ## 📥 Download
 
 Get the latest version from our releases:
-- [Latest Release (v2.0.0)](https://github.com/Shery-1508/File-Contents-Tree-Copier/releases/tag/v2.0.0)
+- [Latest Release (v1.2.0)](https://github.com/Shery-1508/File-Contents-Tree-Copier/releases/tag/v1.2.0)
 - [Download Executable](https://github.com/Shery-1508/File-Contents-Tree-Copier/releases/download/v2.0.0/File.Content-Tree.Copier.exe)
 
 ## 💻 Usage
