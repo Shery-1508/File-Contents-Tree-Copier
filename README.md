@@ -11,6 +11,9 @@ The **File Content-Tree Copier** is a powerful utility application designed to s
 - **Enhanced UI**: Better visual feedback and smoother operation
 - **Loading Indicators**: Elegant loading animations for better UX
 
+## 📸 Screenshots
+![Screenshot 2025-01-28 210439](https://github.com/user-attachments/assets/3e11d690-f9ab-4b9a-9fd7-60d12024b442)
+
 ## 🚀 Features
 - **File Tree View**: Easy visualization of directory structure
 - **Content Preview**: View file contents directly in the app
@@ -36,9 +39,6 @@ Get the latest version from our releases:
 - [Latest Release (v2.0.0)](https://github.com/Shery-1508/File-Contents-Tree-Copier/releases/tag/v2.0.0)
 - [Download Executable](https://github.com/Shery-1508/File-Contents-Tree-Copier/releases/download/v2.0.0/File.Content-Tree.Copier.exe)
 
-## 📸 Screenshots
-![Screenshot 2025-01-28 210439](https://github.com/user-attachments/assets/3e11d690-f9ab-4b9a-9fd7-60d12024b442)
-
 ## 💻 Usage
 1. Launch the application
 2. Select files or directories using the respective buttons
@@ -49,7 +49,7 @@ Get the latest version from our releases:
 
 ## 🛠️ Requirements
 - Windows Operating System
-- No additional dependencie![Screenshot 2025-01-28 210439](https://github.com/user-attachments/assets/120718bd-7775-4e8f-aa66-8f8896f8eb2b)
+- No additional dependencie
 s required
 
 ## 📝 Version History
